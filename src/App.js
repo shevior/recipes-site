@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Login from './component/Login';
+import Signup from './component/Signup';
+import { Route, Routes } from 'react-router-dom';
+import Header from './component/Header';
+import HomePage from './component/HomePage';
+import MyRecipes from './recipe/MyRecipes';
+import ShoppingCart from './component/ShoppingCart';
+import RecipesList from './recipe/RecipeList';
+import RecipeForm from './recipe/FormToAddOrEdit';
+import 'semantic-ui-css/semantic.min.css';
+import Categories from './component/categories';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="contaiter">
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/signup" element={<Signup />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/homepage" element={<HomePage />}/>
+        <Route path="/myrecipes" element={<MyRecipes/>}/>
+        <Route path="/recipeform" element={<RecipeForm/>}/>
+        <Route path="/recipes" element={<RecipesList/>}/>
+        <Route path="/shoppingcart" element={<ShoppingCart/>}/>
+        <Route path="/categories" element={<Categories/>}/>
+      </Routes>
     </div>
   );
 }
